@@ -2,8 +2,9 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "background.h"
-#include "clock.h"
-// #include "Football.h"
+
+#include "football.h"
+
 // #include "Referee.h"
 #include "frameGenerator.h"
 const int X_POS = 350;
@@ -65,6 +66,7 @@ int main( ) {
   float fakeX = 0;
   SDL_Init(SDL_INIT_VIDEO);
   Clock gameClock;
+  std::pair<int, int> windowSize(WIDTH, HEIGHT);
 
   SDL_Window *window = 
     SDL_CreateWindow("Field Goal Animation", posX, posY, WIDTH, HEIGHT, 0);

@@ -1,24 +1,25 @@
 #include <string>
 #include <SDL.h>
-#include "Clock.h"
+#include <SDL_image.h>
+#include <vector>
+#include "frameGenerator.h"
+#include "clock.h"
 
 class Football{
 	public:
-		Football(string[] fileName, SDL_Renderer *rend, float startX, float startY): 
-			fileNames(new string[3]), rend(), startingX(startX), startingY(startY), 
-			xPos(startX), yPos(startY), fakeXPos(startX);
-
-		~Football();
+		Football(std::vector<std::string>&, SDL_Renderer*, float, float, std::pair<int, int>);
+		void updateFootball(Clock &, bool, FrameGenerator &, std::pair<int, int>){
+		~Football(){SDL_DestroyTexture(fbTexture);}
 		
 	private:
-		float startingX;
-		float startingY
+		int startingX;
+		int startingY;
 		float xPos;
 		float yPos;
 		float fakeXPos;
-
+		SDL_Rect dstrect;
+		std::vector<std::string> fileNames;
 		SDL_Texture* fbTexture;
-		SDL_Rect dstrect = {X_POS, Y_POS, 32, 32};
 		SDL_Texture* getTexture(SDL_Renderer*, const std::string&);
 };
 

@@ -6,6 +6,7 @@ class Clock{
 			,currentTicks(SDL_GetTicks()), elapsedTicks(currentTicks - prevTicks + rem){}
 
 		bool updateClock();
+		unsigned int getDT() const{return DT;}
 		//updates clock and returns true if time elapsed > DT
 	private:
 		
