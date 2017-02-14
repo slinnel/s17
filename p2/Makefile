@@ -4,12 +4,12 @@ CFLAGS=`sdl2-config --cflags` -g -W -Wall -Weffc++ -Wextra -pedantic -O0 -I `sdl
 SDL_LIB=`sdl2-config --libs` -lSDL2_image
 CCC=g++
 
-OBJECTS = frameGenerator.o background.o
+OBJECTS = frameGenerator.o background.o clock.o
 
 run: main.o $(OBJECTS)
 	$(CCC) $(CFLAGS) main.cpp -o run $(OBJECTS) $(SDL_LIB)
 
-main.o: main.cpp frameGenerator.h background.h
+main.o: main.cpp frameGenerator.h background.h clock.h
 	$(CCC) $(CFLAGS) -c main.cpp
 
 frameGenerator.o: frameGenerator.cpp frameGenerator.h
@@ -17,6 +17,9 @@ frameGenerator.o: frameGenerator.cpp frameGenerator.h
 
 background.o: background.cpp background.h
 	$(CCC) $(CFLAGS) -c background.cpp
+
+clock.o: clock.cpp clock.h
+	$(CCC) $(CFLAGS) -c clock.cpp
 
 clean:
 	rm -f run *.o

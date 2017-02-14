@@ -8,7 +8,7 @@ bool Clock::updateClock(){
 	if(elapsedTicks < DT)
 		return false;
 	prevTicks = currentTicks;
-  	remainder = elapsedTicks - DT; 
+  	rem = elapsedTicks - DT; 
 
   	return true;
 }

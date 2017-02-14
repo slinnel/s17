@@ -42,11 +42,6 @@ void update(SDL_Rect& dstrect, FrameGenerator& frameGen, bool makeVideo, float &
   static float x = X_POS;
   static float y = Y_POS;
 
-  static unsigned int remainder = 0u;
-  static unsigned int prevTicks = SDL_GetTicks();
-  unsigned int currentTicks = SDL_GetTicks();
-  unsigned int elapsedTicks = currentTicks - prevTicks + remainder; // ***
-
   if(!gameClock.updateClock()) return;
 
   // Generate a frame:
@@ -61,9 +56,6 @@ void update(SDL_Rect& dstrect, FrameGenerator& frameGen, bool makeVideo, float &
   }
   x = clamp(x,0.f,WIDTH-dstrect.w);
   y = clamp(y,0.f,HEIGHT-dstrect.h);
-
-  prevTicks = currentTicks;
-  remainder = elapsedTicks - DT; // ***
   
   dstrect.y = y;
 }
