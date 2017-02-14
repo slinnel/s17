@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "background.h"
+#include "clock.h"
 // #include "Football.h"
 // #include "Referee.h"
 #include "frameGenerator.h"
@@ -37,16 +38,16 @@ inline float clamp(const float val, const float lo, const float hi){
   return val <= lo ? lo : ( val >= hi ? hi : val);
 }
 
-void update(SDL_Rect& dstrect, FrameGenerator& frameGen, bool makeVideo, float &fakeX) {
+void update(SDL_Rect& dstrect, FrameGenerator& frameGen, bool makeVideo, float &fakeX, Clock& gameClock) {
   static float x = X_POS;
   static float y = Y_POS;
 
-  static unsigned int remainder = 0u; // ***
+  static unsigned int remainder = 0u;
   static unsigned int prevTicks = SDL_GetTicks();
   unsigned int currentTicks = SDL_GetTicks();
   unsigned int elapsedTicks = currentTicks - prevTicks + remainder; // ***
 
-  if( elapsedTicks < DT ) return;
+  if(!gameClock.updateClock()) return;
 
   // Generate a frame:
   if ( makeVideo ) frameGen.makeFrame();
@@ -71,13 +72,14 @@ int main( ) {
   int posX = 100, posY = 100;
   float fakeX = 0;
   SDL_Init(SDL_INIT_VIDEO);
+  Clock gameClock;
 
   SDL_Window *window = 
     SDL_CreateWindow("Field Goal Animation", posX, posY, WIDTH, HEIGHT, 0);
 
   SDL_Renderer *renderer = 
     SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-  Background bg = Background(renderer, "images/bkgrnd.png");
+  Background bg(renderer, "images/bkgrnd.png");
 
   SDL_Texture *football = getTexture(renderer, "images/college_football.png");
 
@@ -110,7 +112,7 @@ int main( ) {
       football = IMG_LoadTexture(renderer, "images/college_football3.png");
     counter++;
     draw(renderer, bg.getBG(), football, dstrect);
-    update(dstrect, frameGen, makeVideo, fakeX);
+    update(dstrect, frameGen, makeVideo, fakeX, gameClock);
   }
 
   SDL_DestroyTexture(football);

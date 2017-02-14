@@ -6,5 +6,4 @@ class Football{
 	public:
 		Football(string[] fileName, SDL_Renderer *rend): fileNames(new string[3]);
 		~Football();
-		void update(Clock);
 		
