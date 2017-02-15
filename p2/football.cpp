@@ -1,3 +1,4 @@
+//Football.cpps
 #include "football.h"
 #include <iostream>
 #include <sstream>
@@ -10,47 +11,69 @@
 inline float clamp(const float val, const float lo, const float hi){
   return val <= lo ? lo : ( val >= hi ? hi : val);
 }
-
-void Football::updateFootball(Clock &gameClock, bool makeVideo, FrameGenerator &frameGen, std::pair<int, int> windowSize){
+//updates the position of the football on the window
+void Football::updateFootball(SDL_Renderer *rend, Clock &gameClock,
+       std::pair<int, int> windowSize){
 
   int WIDTH = windowSize.first;
   int HEIGHT = windowSize.second;
-  if(!gameClock.updateClock()) return;
-
-  if(makeVideo) frameGen.makeFrame();
   unsigned int DT = gameClock.getDT();
 
-  float dx = X_VEL * DT * 0.001;
-
+  float dx = xVEL * DT * 0.001;
   fakeXPos+= dx;
 
   if(fakeXPos < 550){
-    float dy = sqrt(((350*350)-((fakeXPos-350)*(fakeXPos-350)));
+    float prevY = yPos;
+    float dy = sqrt((350*350)-((fakeXPos-350)*(fakeXPos-350)));
     yPos = dy;
     yPos = HEIGHT - yPos;
+    if(yPos-prevY < 0)
+      xPos+=.3;
+    else
+      xPos-=.5;
   }
+  else
+    stillFlipping = false;
+
   xPos = clamp(xPos,0.f,WIDTH-dstrect.w);
   yPos = clamp(yPos,0.f,HEIGHT-dstrect.h);
-
+  dstrect.x = xPos;
   dstrect.y = yPos;
-}
 
-Football::Football(std::vector<std::string> &fNs, SDL_Renderer *rend, float startX, float startY): startingX(startX)
-    , startingY(startY), xPos(startX), yPos(startY), fakeXPos(startX){
-      fbTexture = getTexture(rend, fNs.front());
-      dstrect.x = startingX;
-      dstrect.y = startingY;
-      dstrect.h = 32;
-      dstrect.w = 32; 
+  if(stillFlipping){  //continues to flip the sprite.
+    if(flipCounter % 30 < 10)
+       getTexture(rend, fileNames[0]);
+     else if(flipCounter % 30 < 20)
+       getTexture(rend, fileNames[1]);
+     else
+       getTexture(rend, fileNames[2]);
+       
+     flipCounter++;
+     if(flipCounter % 7 == 0)
+     {
+      dstrect.h --;
+      dstrect.w --;
+     }
+  }
 }
-
-SDL_Texture* Football::getTexture(SDL_Renderer* rend, const std::string& filename) {
+//Constructor
+Football::Football(std::vector<std::string> &fNs, SDL_Renderer *rend, float startX,
+   float startY, int vel): xPos(startX), yPos(startY), xVEL(vel), flipCounter(0),
+      fakeXPos(0), fileNames(fNs), stillFlipping(true){
+      getTexture(rend, fileNames.front());
+      dstrect.x = xPos;
+      dstrect.y = yPos;
+      dstrect.h = 35;
+      dstrect.w = 35; 
+}
+//returns the SDL_Texture of the football
+void Football::getTexture(SDL_Renderer* rend, const std::string& filename) {
+  SDL_DestroyTexture(fbTexture);
   try {
-    SDL_Texture *texture = IMG_LoadTexture(rend, filename.c_str());
-    if ( texture == NULL ) {
+    fbTexture = IMG_LoadTexture(rend, filename.c_str());
+    if ( fbTexture == NULL ) {
       throw std::string("Couldn't load ") + filename;
     }
-    return texture;
   }
   catch( const std::string& msg ) { 
     std::cout << msg << std::endl; 

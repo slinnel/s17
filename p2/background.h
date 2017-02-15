@@ -1,3 +1,4 @@
+// Background.h
 #include <string>
 #include <SDL.h>
 
@@ -8,7 +9,7 @@ class Background{
 		~Background()
 			{SDL_DestroyTexture(backgroundTexture);}
 	private:
-		Background(){}
+		Background();
 		SDL_Texture *backgroundTexture;
-		SDL_Texture* getTexture(SDL_Renderer*, const std::string&);
+		void getTexture(SDL_Renderer*, const std::string&);
 };
