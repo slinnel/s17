@@ -17,5 +17,7 @@ class Clock{
          unsigned int currentTicks;
          unsigned int elapsedTicks;
          const static unsigned int DT = 17u; 
+         Clock(const updateClock&);
+  		 Clock& operator=(const Clock&);
 };
 #endif

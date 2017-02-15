@@ -21,5 +21,7 @@ class Banner{
 		Banner(){}	//disallow compiler generated
 		SDL_Texture *bannerTexture;
 		void getTexture(SDL_Renderer*, const std::string&);
+		Banner(const Banner&);
+  		Banner& operator=(const Banner&);
 };
 #endif

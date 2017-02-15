@@ -9,7 +9,7 @@ OBJECTS = frameGenerator.o background.o clock.o football.o referee.o banner.o
 run: main.o $(OBJECTS)
 	$(CCC) $(CFLAGS) main.cpp -o run $(OBJECTS) $(SDL_LIB)
 
-main.o: main.cpp frameGenerator.o background.o clock.o football.o referee.o banner.o
+main.o: main.cpp frameGenerator.h background.h clock.h football.h referee.h banner.h
 	$(CCC) $(CFLAGS) -c main.cpp
 
 frameGenerator.o: frameGenerator.cpp frameGenerator.h

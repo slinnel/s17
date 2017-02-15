@@ -28,5 +28,7 @@ class Football{
 		bool stillFlipping;	//TRUE, if ball is still turning, false if ball is not moving
 		SDL_Texture* fbTexture;
 		void getTexture(SDL_Renderer*, const std::string&);
+		Football(const Football&);
+  		Football& operator=(const Football&);
 };
 #endif

@@ -15,4 +15,6 @@ class Referee{
 		Referee(){}
 		SDL_Texture *refTexture;
 		void getTexture(SDL_Renderer*, const std::string&);
+		Referee(const Referee&);
+  		Referee& operator=(const Referee&);
 };
