@@ -9,6 +9,9 @@ OBJECTS = frameGenerator.o background.o clock.o football.o referee.o banner.o
 run: main.o $(OBJECTS)
 	$(CCC) $(CFLAGS) main.cpp -o run $(OBJECTS) $(SDL_LIB)
 
+main.o: main.cpp frameGenerator.o background.o clock.o football.o referee.o banner.o
+	$(CCC) $(CFLAGS) -c main.cpp
+
 frameGenerator.o: frameGenerator.cpp frameGenerator.h
 	$(CCC) $(CFLAGS) -c frameGenerator.cpp
 
@@ -26,9 +29,6 @@ referee.o: referee.cpp referee.h
 
 banner.o: banner.cpp banner.h clock.h
 	$(CCC) $(CFLAGS) -c banner.cpp
-
-main.o: main.cpp frameGenerator.o background.o clock.o football.o referee.o banner.o
-	$(CCC) $(CFLAGS) -c main.cpp
 
 clean:
 	rm -f run *.o
