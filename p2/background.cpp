@@ -4,18 +4,18 @@
 #include <string>
 #include "background.h"
 #include <SDL_image.h>
-
+/*
 Background::Background(SDL_Renderer* rend, const std::string& filename){
   getTexture(rend, filename);
 }
-
-void Background::getTexture(SDL_Renderer* rend, const std::string& filename) {
-  SDL_DestroyTexture(backgroundTexture);
+*/
+SDL_Texture *Background::getTexture(SDL_Renderer* rend, const std::string& filename) {
   try {
-     backgroundTexture = IMG_LoadTexture(rend, filename.c_str());
+    SDL_Texture *bTexture = IMG_LoadTexture(rend, filename.c_str());
     if ( backgroundTexture == NULL ) {
       throw std::string("Couldn't load ") + filename;
     }
+    return bTexture;
   }
   catch( const std::string& msg ) { 
     std::cout << msg << std::endl; 
