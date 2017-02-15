@@ -1,6 +1,6 @@
 # Change the following values to suit your system.
 
-CFLAGS=`sdl2-config --cflags` -g -W -Wall -Weffc++ -Wextra -pedantic -O0 -I `sdl2-config --prefix`/include/ 
+CFLAGS=`sdl2-config --cflags` -W -Wall -Weffc++ -Wextra -pedantic -O0 -I `sdl2-config --prefix`/include/ 
 SDL_LIB=`sdl2-config --libs` -lSDL2_image
 CCC=g++
 
