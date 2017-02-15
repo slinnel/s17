@@ -14,7 +14,7 @@ const int X_POS = 350;
 const int Y_POS = 0;
 const float X_VEL = 200.0;
 //draws the objects on the renderer
-void draw(SDL_Renderer* rend, SDL_Texture* back, Football fb,
+void draw(SDL_Renderer* rend, SDL_Texture* back, Football &fb,
           const SDL_Rect& fbRect, SDL_Texture* ref, const SDL_Rect& refRect,
            SDL_Texture* ref2, const SDL_Rect& ref2Rect,
            SDL_Texture* ban, const SDL_Rect& banRect) {

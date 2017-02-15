@@ -21,7 +21,7 @@ background.o: background.cpp background.h
 clock.o: clock.cpp clock.h
 	$(CCC) $(CFLAGS) -c clock.cpp
 
-football.o: football.cpp football.h clock.h
+football.o: football.cpp football.h
 	$(CCC) $(CFLAGS) -c football.cpp
 
 referee.o: referee.cpp referee.h
