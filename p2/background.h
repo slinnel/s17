@@ -4,8 +4,7 @@
 
 class Background{
 	public:
-		Background(SDL_Renderer* rend, const std::string& name):
-			backgroundTexture(getTexture(rend,name)){}
+		Background(SDL_Renderer* rend, const std::string& name);
 		SDL_Texture *getBG () const {return backgroundTexture;}
 		~Background()
 			{SDL_DestroyTexture(backgroundTexture);}
@@ -14,5 +13,5 @@ class Background{
 		Background(const Background&);
 		Background &operator=(const Background&);
 		SDL_Texture *backgroundTexture;
-		SDL_Texture *getTexture(SDL_Renderer*, const std::string&);
+		void getTexture(SDL_Renderer*, const std::string&);
 };
