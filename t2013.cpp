@@ -1,26 +1,26 @@
-#include <iostream> 
-using std::cout; using std::endl;
-class string{
-	public:
-		string() {cout <<"default"<<endl;}
-		string (const char *n) { cout << "convert" << endl;}
-		string (const string&) { cout << "copy" << endl;}
-		const string &operator=(const string&){
-			cout<< "assignment" << endl;
-		}
-    ~string (){ cout<<"destroy"<<endl;
-    }
-	private:
-		char * buf;
+// #include <iostream> 
+// using std::cout; using std::endl;
+// class string{
+// 	public:
+// 		string() {cout <<"default"<<endl;}
+// 		string (const char *n) { cout << "convert" << endl;}
+// 		string (const string&) { cout << "copy" << endl;}
+// 		const string &operator=(const string&){
+// 			cout<< "assignment" << endl;
+// 		}
+//     ~string (){ cout<<"destroy"<<endl;
+//     }
+// 	private:
+// 		char * buf;
 
-};
-const string doit(const string x){
-	return x;
-}
-int main(){
-	string a("me");
-	a = doit(a);
-}
+// };
+// const string doit(const string x){
+// 	return x;
+// }
+// int main(){
+// 	string a("me");
+// 	a = doit(a);
+// }
 
 //		#1 convert copy copy assignment
 /*

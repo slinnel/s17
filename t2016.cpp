@@ -60,37 +60,37 @@
 // 	std::cout<<number;
 // 	// number.operator<<(std::cout);
 // }
-#include <iostream>
-#include <cstring>
-#include <string>
-class A{
-public:
-	A(const std::string &n):name(n){}
-	virtual ~A(){std::cout<<"base"<<std::endl;}
-	void test(){std::cout<<"im in the base class"<<std::endl;}
-	virtual void f() {std::cout <<"A::f()"<<std::endl;}
-	void g() {std::cout<<"A::g()"<<std::endl;}
-private:
-	std::string name;
-};
-class B : public A { 
-public:
-	B( const std::string& n, const char* t) : A(n),
-	title(new char[strlen(t)+1]) { strcpy(title , t);}
- 	~B() { delete [] title; std::cout << "derived" << std::endl; } 
- 	void test(){std::cout<<"im in the derived class"<<std::endl;}
- 	void f() { std::cout << "B::f()" << std::endl; }
-	void g() { std::cout << "B::g()" << std::endl; }
-private:
-	char* title;
-};
-int main() {
-	B* x = new B("Thane", "Whiterun"); 
-	x->test();
-	x->f();
-	x->g();
-	delete x; 
-}
+// #include <iostream>
+// #include <cstring>
+// #include <string>
+// class A{
+// public:
+// 	A(const std::string &n):name(n){}
+// 	virtual ~A(){std::cout<<"base"<<std::endl;}
+// 	void test(){std::cout<<"im in the base class"<<std::endl;}
+// 	virtual void f() {std::cout <<"A::f()"<<std::endl;}
+// 	void g() {std::cout<<"A::g()"<<std::endl;}
+// private:
+// 	std::string name;
+// };
+// class B : public A { 
+// public:
+// 	B( const std::string& n, const char* t) : A(n),
+// 	title(new char[strlen(t)+1]) { strcpy(title , t);}
+//  	~B() { delete [] title; std::cout << "derived" << std::endl; } 
+//  	void test(){std::cout<<"im in the derived class"<<std::endl;}
+//  	void f() { std::cout << "B::f()" << std::endl; }
+// 	void g() { std::cout << "B::g()" << std::endl; }
+// private:
+// 	char* title;
+// };
+// int main() {
+// 	B* x = new B("Thane", "Whiterun"); 
+// 	x->test();
+// 	x->f();
+// 	x->g();
+// 	delete x; 
+//}
 // #include <iostream>
 // #include <cstring>
 // #include <vector>
@@ -124,11 +124,23 @@ int main() {
 // 	return *this;
 // }
 
-
-
-
-
-
+#include <iostream> 
+class Number {
+public:
+	Number(int n) : number(n) {}
+	int getNumber() const{ return number; }
+private:
+	int number;
+	Number& operator=(const Number&);
+	Number( const Number&); 
+};	
+void printNumber(const Number& number){ 
+		std::cout << number.getNumber() << std::endl;
+	}
+int main( ) {
+	Number number (17); 
+	printNumber(number);
+}
 
 
 
