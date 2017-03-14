@@ -1,6 +1,6 @@
 #include <iostream> 
 using std::cout; using std::endl;
-/*class string{
+class string{
 	public:
 		string() {cout <<"default"<<endl;}
 		string (const char *n) { cout << "convert" << endl;}
@@ -8,6 +8,8 @@ using std::cout; using std::endl;
 		const string &operator=(const string&){
 			cout<< "assignment" << endl;
 		}
+    ~string (){ cout<<"destroy"<<endl;
+    }
 	private:
 		char * buf;
 
@@ -19,8 +21,9 @@ int main(){
 	string a("me");
 	a = doit(a);
 }
-//		#1 convert copy copy assignment
 
+//		#1 convert copy copy assignment
+/*
 //NUMBER 2 & 3
 #include <cstring>
 class string {
@@ -157,7 +160,7 @@ int main() {
   I'm an A
   I'm an B
   I'm an A
-*/
+
 #include <SDL.h>
 #include "clock.h"
 const unsigned int MAX = 3;
@@ -185,7 +188,7 @@ int main(int, char*[]) {
 
   
 
-
+*/
 
 
 

@@ -163,7 +163,40 @@ int main() {
 //v3 size -> 3 cap 4
 
 
+#include <iostream>
+#include <vector>
+#include <cstdlib>
 
+const int MAX = 100;
+const int LETTERS = 26;
+
+void init(std::vector<char> &vec){
+
+	for(unsigned int i = 0; i < MAX; ++i){
+		vec.push_back(rand() % LETTERS + 'A');
+	}
+}
+void print(const std::vector<char> &vec){
+	for(unsigned int i = 0; i < vec.size(); ++i){
+		std::cout<<vec[i]<<" ";
+	}
+	std::cout<<std::endl;
+}
+void eraseVowels(std::vector<char> &vec){
+	std::remove(vec.begin(), vec.end(), 'A');
+	std::remove(vec.begin(), vec.end(), 'E');
+	std::remove(vec.begin(), vec.end(), 'I');
+	std::remove(vec.begin(), vec.end(), 'O');
+	std::remove(vec.begin(), vec.end(), 'U');
+}
+int main(){
+	std::vector<char> vec;
+	init(vec);
+	print(vec);
+	std::cout<<std::endl;
+	eraseVowels(vec);
+	print(vec);
+}
 
 
 
