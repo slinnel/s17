@@ -78,7 +78,7 @@ int main() {
      print(vec3);
      print_items(vec2);
 }
-*/
+
 #include <iostream>
 #include <vector>
 using std::string; using std::cout; using std::endl;
@@ -110,6 +110,91 @@ class A {
        }
 }
 //THE FUNCTION IS NOT VITURAL
+
+
+#include <iostream>
+#include <vector>
+const unsigned int MAX = 3;
+class A {
+   public:
+     virtual void print() const { std::cout << "I’m an A" << std::endl; }
+     void display() const { std::cout << "I’m an A" << std::endl; }
+};
+class B : public A {
+   public:
+     virtual void print() const { std::cout << "I’m an B" << std::endl; }
+     void display() const { std::cout << "I’m an B" << std::endl; }
+};
+void printVecOfA(const std::vector<A> & vec) {
+     std::cout << "Printing A: " << std::endl;
+     for (unsigned i = 0; i < vec.size(); ++i) {
+       vec[i].print();
+       vec[i].display();
+     }
+}
+void printVecOfAstar(const std::vector<A*> & vec) {
+     std::cout << "Printing A star: " << std::endl;
+     for (unsigned i = 0; i < vec.size(); ++i) {
+       vec[i]->print();
+       vec[i]->display();
+     }
+}
+int main() {
+     std::vector<A> vecOfA;
+     vecOfA.push_back( B() );
+     printVecOfA(vecOfA);
+     std::vector<A*> vecOfAstar;
+     vecOfAstar.push_back( new A() );
+     vecOfAstar.push_back( new B() );
+     printVecOfAstar(vecOfAstar);
+}
+//Guess
+
+  I'm an B
+  I'm an A
+
+  I'm an A
+  I'm an A
+  I'm an B
+  I'm an A
+*/
+#include <SDL.h>
+#include "clock.h"
+const unsigned int MAX = 3;
+class Manager {
+   public:
+     Manager() :
+       initVar(SDL_Init(SDL_INIT_VIDEO)),
+       clock() {
+       atexit(SDL_Quit);
+     }
+     void play() {
+       for (unsigned i = 0; i < MAX; ++i) {
+         ++clock;
+    }
+       std::cout << "Frames: " << clock.getFrames() << std::endl;
+     }
+   private:
+     int initVar;
+     Clock clock;
+};
+int main(int, char*[]) {
+     Manager manager;
+     manager.play();
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
