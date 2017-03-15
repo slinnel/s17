@@ -111,62 +111,68 @@ int main() {
 // 	vec[0]->bar();
 // }
 //6
+//  #include <iostream>
+//  class B{
+//  public:
+//  	B(int n): number(n+'0'){}
+//  	char getNumber() const {return number;}
+//  private:
+//  	char number;
+//  };
+//  class A{
+//  public:
+//  	A(int n):b(new B(n)){}
+//  	char getB() const { return b-> getNumber();}
+// 	~A(){delete b;}
+//  private:
+//  	B* b;
+//  };
+//  int main(){
+//  	A* a = new A(7);
+//  	std::cout<<a->getB()<<std::endl;
+// 	delete a;
+//  }
+
 // #include <iostream>
-// class B{
-// public:
-// 	B(int n): number(n+'0'){}
-// 	char getNumber() const {return number;}
-// private:
-// 	char number;
-// };
+// #include <cstdlib>
+// #include <vector>
+// const int MAX = 2;
 // class A{
 // public:
-// 	A(int n):b(new B(n)){}
-// 	char getB() const { return b-> getNumber();}
-// private:
-// 	B* b;
+// 	A(){std::cout << "default" << std::endl; }
+// 	A(const A&){std::cout << "copy" << std::endl; }
+// 	A(const int){std::cout << "convert" << std::endl; }
 // };
-// int main(){
-// 	A* a = new A(7);
-// 	std::cout<<a->getB()<<std::endl;
+// template <typename T>
+// void print(std::vector<T> &vec){
+// 	std::cout << "size: " << vec.size() << '\t'
+// 		<< "cap: " << vec.capacity() << std::endl;
 // }
-
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-const int MAX = 2;
-class A{
-public:
-	A(){std::cout << "default" << std::endl; }
-	A(const A&){std::cout << "copy" << std::endl; }
-	A(const int){std::cout << "convert" << std::endl; }
-};
-template <typename T>
-void print(std::vector<T> &vec){
-	std::cout << "size: " << vec.size() << '\t'
-		<< "cap: " << vec.capacity() << std::endl;
-}
-int main(){
-	std::vector<int> vec1;
-	std::vector<int> vec2;
-	vec2.reserve(MAX);
-	vec1.push_back(rand() % 100);
-	vec2.push_back(rand() % 100);
-	std::vector<A> vec3(MAX);
-	vec3.push_back(A());
-	print(vec1);
-	print(vec2);
-	print(vec3);
-}
+// int main(){
+// 	std::vector<int> vec1;
+// 	std::vector<int> vec2;
+// 	vec2.reserve(MAX);
+// 	vec1.push_back(rand() % 100);
+// 	vec2.push_back(rand() % 100);
+// 	std::vector<A> vec3(MAX);
+// 	vec3.push_back(A());
+// 	print(vec1);
+// 	print(vec2);
+// 	print(vec3);
+// }
 
 //v1 size -> 1 cap 1
 //v2 size -> 1, cap 2
 //v3 size -> 3 cap 4
 
-
 // #include <iostream>
 // #include <vector>
 // #include <cstdlib>
+
+/*
+#include <iostream>
+#include <vector>
+#include <cstdlib>
 
 // const int MAX = 100;
 // const int LETTERS = 26;
@@ -208,7 +214,7 @@ int main(){
 
 
 
-
+*/
 
 
 
