@@ -131,72 +131,73 @@ int main() {
 // 	std::cout<<a->getB()<<std::endl;
 // }
 
-// #include <iostream>
-// #include <cstdlib>
-// #include <vector>
-// const int MAX = 2;
-// class A{
-// public:
-// 	A(){std::cout << "default" << std::endl; }
-// 	A(const A&){std::cout << "copy" << std::endl; }
-// };
-// template <typename T>
-// void print(std::vector<T> &vec){
-// 	std::cout << "size: " << vec.size() << '\t'
-// 		<< "cap: " << vec.capacity() << std::endl;
-// }
-// int main(){
-// 	std::vector<int> vec1;
-// 	std::vector<int> vec2;
-// 	vec2.reserve(MAX);
-// 	vec1.push_back(rand() % 100);
-// 	vec2.push_back(rand() % 100);
-// 	std::vector<A> vec3(MAX);
-// 	vec3.push_back(A());
-// 	print(vec1);
-// 	print(vec2);
-// 	print(vec3);
-// }
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+const int MAX = 2;
+class A{
+public:
+	A(){std::cout << "default" << std::endl; }
+	A(const A&){std::cout << "copy" << std::endl; }
+	A(const int){std::cout << "convert" << std::endl; }
+};
+template <typename T>
+void print(std::vector<T> &vec){
+	std::cout << "size: " << vec.size() << '\t'
+		<< "cap: " << vec.capacity() << std::endl;
+}
+int main(){
+	std::vector<int> vec1;
+	std::vector<int> vec2;
+	vec2.reserve(MAX);
+	vec1.push_back(rand() % 100);
+	vec2.push_back(rand() % 100);
+	std::vector<A> vec3(MAX);
+	vec3.push_back(A());
+	print(vec1);
+	print(vec2);
+	print(vec3);
+}
 
 //v1 size -> 1 cap 1
 //v2 size -> 1, cap 2
 //v3 size -> 3 cap 4
 
 
-#include <iostream>
-#include <vector>
-#include <cstdlib>
+// #include <iostream>
+// #include <vector>
+// #include <cstdlib>
 
-const int MAX = 100;
-const int LETTERS = 26;
+// const int MAX = 100;
+// const int LETTERS = 26;
 
-void init(std::vector<char> &vec){
+// void init(std::vector<char> &vec){
 
-	for(unsigned int i = 0; i < MAX; ++i){
-		vec.push_back(rand() % LETTERS + 'A');
-	}
-}
-void print(const std::vector<char> &vec){
-	for(unsigned int i = 0; i < vec.size(); ++i){
-		std::cout<<vec[i]<<" ";
-	}
-	std::cout<<std::endl;
-}
-void eraseVowels(std::vector<char> &vec){
-	std::remove(vec.begin(), vec.end(), 'A');
-	std::remove(vec.begin(), vec.end(), 'E');
-	std::remove(vec.begin(), vec.end(), 'I');
-	std::remove(vec.begin(), vec.end(), 'O');
-	std::remove(vec.begin(), vec.end(), 'U');
-}
-int main(){
-	std::vector<char> vec;
-	init(vec);
-	print(vec);
-	std::cout<<std::endl;
-	eraseVowels(vec);
-	print(vec);
-}
+// 	for(unsigned int i = 0; i < MAX; ++i){
+// 		vec.push_back(rand() % LETTERS + 'A');
+// 	}
+// }
+// void print(const std::vector<char> &vec){
+// 	for(unsigned int i = 0; i < vec.size(); ++i){
+// 		std::cout<<vec[i]<<" ";
+// 	}
+// 	std::cout<<std::endl;
+// }
+// void eraseVowels(std::vector<char> &vec){
+// 	std::remove(vec.begin(), vec.end(), 'A');
+// 	std::remove(vec.begin(), vec.end(), 'E');
+// 	std::remove(vec.begin(), vec.end(), 'I');
+// 	std::remove(vec.begin(), vec.end(), 'O');
+// 	std::remove(vec.begin(), vec.end(), 'U');
+// }
+// int main(){
+// 	std::vector<char> vec;
+// 	init(vec);
+// 	print(vec);
+// 	std::cout<<std::endl;
+// 	eraseVowels(vec);
+// 	print(vec);
+// }
 
 
 
