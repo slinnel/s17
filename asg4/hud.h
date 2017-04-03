@@ -36,6 +36,9 @@ private:
 	SDL_Rect rect;
 	IOmod &io;
 	Clock &c;
+
+	HUD(const HUD&);
+  	HUD& operator=(const HUD&);
 };
 
 #endif
