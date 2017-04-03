@@ -1,0 +1,92 @@
+<?xml version = "1.0"?>
+<GameData>
+<screenTitle>Political Cats</screenTitle>
+<maxStringSize>50</maxStringSize>
+
+<myName>Stephen Linnell</myName>
+<title>Trump vs. Cat</title>
+
+<frameCapOn>true</frameCapOn>
+<period>17</period>
+<frameMaxQ>300</frameMaxQ>
+
+<maxFrames>300</maxFrames>
+<username>malloy</username>
+
+<view>
+  <width>854</width>
+  <height>480</height>
+</view>
+
+<world>
+  <width>2000</width>
+  <height>900</height>
+</world>
+
+<skyB>
+  <file>images/skyB.png</file>
+  <factor>4</factor>
+  <transparency>false</transparency>
+</skyB>
+
+<grassB>
+  <file>images/grassB.png</file>
+  <factor>1</factor>
+  <transparency>false</transparency>
+</grassB>
+
+<mtB>
+  <file>images/mtB.png</file>
+  <factor>3</factor>
+  <transparency>false</transparency>
+</mtB>
+
+<font name="font">
+  <file>fonts/arial.ttf</file>
+  <size>18</size>
+  <red>0</red>
+  <green>0</green>
+  <blue>0</blue>
+  <alpha>255</alpha>
+</font>
+
+<hud>
+  <rectX>0</rectX>
+  <rectY>0</rectY>
+  <rectW>275</rectW>
+  <rectH>150</rectH>
+</hud>
+
+<runningcat>
+  <file>images/rc2sf.png</file>
+  <startLoc x="300" y="800"/>
+  <frames>16</frames>
+  <frameInterval>100</frameInterval>
+  <speedX>400</speedX>
+  <speedY>0</speedY>
+  <transparency>true</transparency>
+</runningcat>
+
+<coin>
+  <file>images/coin.png</file>
+  <startLoc x="800" y="10"/>
+  <frames>10</frames>
+  <frameInterval>20</frameInterval>
+  <speedX>500</speedX>
+  <speedY>300</speedY>
+  <transparency>true</transparency>
+</coin>
+
+<trump>
+  <file>images/fullTrump.png</file>
+  <startLoc x="0" y="700"/>
+  <frames>12</frames>
+  <frameInterval>75</frameInterval>
+  <speedX>-400</speedX>
+  <speedY>0</speedY>
+  <jumpSpeed>400</jumpSpeed>
+  <transparency>true</transparency>
+</trump>
+
+
+</GameData>

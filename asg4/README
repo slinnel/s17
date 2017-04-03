@@ -1,0 +1,18 @@
+Name:Stephen Linnell
+
+Clemson Email Address:slinnel@clemson.edu
+
+Project no:4
+
+Project due date:4/4/2017
+
+Project description: Adding Depth, using painters algorithm, paralax scrolling, and moving a player with keys
+
+The easiest part of this project: Getting the player (trump) to move around on the screen
+
+Problems that I had in completing this project: Incorporating a gravity scheme to always pull the player down
+and getting trump to jump properly
+
+
+Vision for the last project:
+What I hope to accomplish is a game where you start by running right and collecting coins that fall while cats run after trump.  Once you gain enough coins you will gain a gun which you can shoot cats with while you run to the white house.  A little twist will be once you get eaten by a cat (lose a life) you will then turn into Mike Pence, and then Paul Ryan.  The game will end when you reach the white house. Score will be kept with how many cats you shoot and how many coins you collect.

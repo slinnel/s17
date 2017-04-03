@@ -89,27 +89,27 @@ int main() {
 // }
 
 
-// #include <iostream>
-// #include <vector>
-// class A { 
-// public:
-// 	A() {}
-// 	virtual void foo ()const { std::cout << "I’m foo in A" << std::endl;}
-// 	void bar () const { std::cout << "I’m bar in A" << std::endl;}
-// };
-// class B : public A{ 
-// public:
-// 	B() : A() {}
-// 	virtual void foo () const { std::cout << "I’m foo in B" << std::endl;}
-// 	void bar () const { std::cout << "I’m bar in B" <<std::endl;}
-// };
-// int main() 
-// { 
-// 	std::vector<A*> vec; 
-// 	vec.push_back( new B ); 
-// 	vec[0]->foo(); 
-// 	vec[0]->bar();
-// }
+#include <iostream>
+#include <vector>
+class A { 
+public:
+	A() {}
+	virtual void foo ()const { std::cout << "I’m foo in A" << std::endl;}
+	void bar () const { std::cout << "I’m bar in A" << std::endl;}
+};
+class B : public A{ 
+public:
+	B() : A() {}
+	virtual void foo () const { std::cout << "I’m foo in B" << std::endl;}
+	void bar () const { std::cout << "I’m bar in B" <<std::endl;}
+};
+int main() 
+{ 
+	std::vector<A*> vec; 
+	vec.push_back( new B() ); 
+	vec[0]->foo(); 
+	vec[0]->bar();
+}
 //6
 //  #include <iostream>
 //  class B{
