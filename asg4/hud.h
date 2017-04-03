@@ -37,7 +37,6 @@ private:
 	IOmod &io;
 	Clock &c;
 
-	HUD(const HUD&);
   	HUD& operator=(const HUD&);
 };
 
