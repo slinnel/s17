@@ -27,7 +27,6 @@ Engine::~Engine() {
   {
     delete s;
   }
-  delete player;
 
 }
 
