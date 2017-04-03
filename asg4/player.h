@@ -27,6 +27,10 @@ class Player : public TwoWayMultiSprite{
   		Vector2f initialVel;
   		float ground;
   		float jumpSpeed;
+
+
+      Player& operator=(const Player&);
+
   	protected:
   		bool keyPressedX;
   		bool keyPressedSPACE;
