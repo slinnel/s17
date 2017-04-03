@@ -94,7 +94,8 @@ void Engine::update(Uint32 ticks) {
 }
 
 void Engine::switchSprite(){
-  currentSprite = ++currentSprite % sprites.size();
+  currentSprite = ++currentSprite
+  currentSprite = currentSprite % sprites.size();
   Viewport::getInstance().setObjectToTrack(sprites[currentSprite]);
 }
 
