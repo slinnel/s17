@@ -15,6 +15,20 @@ Engine::~Engine() {
   for(auto &s: sprites){
     delete s;
   }
+  for(auto &s: smallCoins)
+  {
+    delete s;
+  }
+  for(auto &s: medCoins)
+  {
+    delete s;
+  }
+  for(auto &s: largeCoins)
+  {
+    delete s;
+  }
+  delete player;
+
 }
 
 Engine::Engine() :
